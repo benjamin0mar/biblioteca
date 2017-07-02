@@ -1,0 +1,2 @@
+[06-Jun-2017 23:09:56 UTC] PHP Warning:  require_once(Connections/conexion.php): failed to open stream: No such file or directory in /home/landindin/public_html/pillco/demo/index.php on line 1
+[06-Jun-2017 23:09:56 UTC] PHP Fatal error:  require_once(): Failed opening required 'Connections/conexion.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/landindin/public_html/pillco/demo/index.php on line 1

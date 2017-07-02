@@ -1,0 +1,34 @@
+[08-Jun-2017 16:14:28 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 58
+[09-Jun-2017 07:33:08 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 07:33:16 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 07:33:21 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 07:33:31 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 07:33:36 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 07:33:49 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 07:33:58 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 07:34:30 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 07:34:35 UTC] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 65552 bytes) in /home/landindin/public_html/pillco/bootstrap/cache/compiled.php on line 9665
+[09-Jun-2017 10:23:51 UTC] PHP Parse error:  syntax error, unexpected ':' in /home/landindin/public_html/pillco/app/Http/Controllers/HabitacionesController.php on line 144
+[09-Jun-2017 10:24:13 UTC] PHP Parse error:  syntax error, unexpected ':' in /home/landindin/public_html/pillco/app/Http/Controllers/HabitacionesController.php on line 144
+[09-Jun-2017 10:47:28 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/landindin/public_html/pillco/app/Http/Controllers/HabitacionesController.php on line 93
+[09-Jun-2017 10:47:50 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/landindin/public_html/pillco/app/Http/Controllers/HabitacionesController.php on line 93
+[09-Jun-2017 13:15:51 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/landindin/public_html/pillco/app/Http/Controllers/CajaController.php on line 172
+[09-Jun-2017 13:16:12 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/landindin/public_html/pillco/app/Http/Controllers/CajaController.php on line 23
+[09-Jun-2017 15:54:06 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Datetime' not found in /home/landindin/public_html/pillco/app/Http/Controllers/CajaController.php on line 71
+[09-Jun-2017 18:11:50 UTC] PHP Fatal error:  Class 'App\Http\Controllers\caja' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:11:53 UTC] PHP Fatal error:  Class 'App\Http\Controllers\caja' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:13:09 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:14:23 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:14:31 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:14:35 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:14:35 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:14:35 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:14:35 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth' not found in /home/landindin/public_html/pillco/app/Http/Controllers/RegistroController.php on line 49
+[09-Jun-2017 18:32:07 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DB' not found in /home/landindin/public_html/pillco/app/Http/Controllers/CajaController.php on line 97
+[09-Jun-2017 18:33:45 UTC] PHP Parse error:  syntax error, unexpected '$fecha_inicio' (T_VARIABLE) in /home/landindin/public_html/pillco/app/Http/Controllers/CajaController.php on line 43
+[13-Jun-2017 11:49:07 UTC] PHP Parse error:  syntax error, unexpected 'Route' (T_STRING) in /home/landindin/public_html/pillco/app/Http/routes.php on line 40
+[13-Jun-2017 12:12:20 UTC] PHP Parse error:  syntax error, unexpected '[' in /home/landindin/public_html/pillco/app/Http/Controllers/ProductosController.php on line 57
+[13-Jun-2017 12:12:31 UTC] PHP Parse error:  syntax error, unexpected '[' in /home/landindin/public_html/pillco/app/Http/Controllers/ProductosController.php on line 57
+[13-Jun-2017 12:12:55 UTC] PHP Parse error:  syntax error, unexpected 'Array' (T_ARRAY) in /home/landindin/public_html/pillco/app/Http/Controllers/ProductosController.php on line 57
+[13-Jun-2017 12:13:07 UTC] PHP Parse error:  syntax error, unexpected 'Array' (T_ARRAY) in /home/landindin/public_html/pillco/app/Http/Controllers/ProductosController.php on line 57
+[13-Jun-2017 12:13:39 UTC] PHP Parse error:  syntax error, unexpected ';', expecting '(' in /home/landindin/public_html/pillco/app/Http/Controllers/ProductosController.php on line 57
