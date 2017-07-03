@@ -2,11 +2,12 @@
 @section('titulo')
 Prestamos
 @endsection
+<link rel="stylesheet" href="{{asset('css/style.css')}}">
+
 @section('content')
-       <div class="sanciones_form panel panel-default ">
-		<div class="container-fluid ">
-		
-				<table   id="example" class="table table table-hover table-result  width-all">
+ <div class="sanciones_form panel panel-default padding-box ">
+		<div class="container-fluid  ">
+				<table   id="example" class="table table-hover   ">
 					<thead>
 						<tr>
 							<th>Usuario</th>
@@ -16,22 +17,117 @@ Prestamos
 							<th>Dias transcurridos</th>
 							<th>Estado devolucion</th>
 							<th>Devolver</th>
-
 						</tr>
 					</thead>
-
-					
-
 				</table>
-			<br/>	
+			<br/>
 		</div>
 	</div>
+
+
+ <div class="chart-libros">
+	 <div class="chart-libros-wrapper">
+		 <div class="bar chart-section panel panel-default padding-box">
+       <div class="title-section">
+         <h3>Numero de Prestamos</h3>
+       </div>
+			 <canvas id="myChart" class="chart"></canvas>
+		 </div>
+		 <div class="doughnut chart-section panel panel-default padding-box">
+       <div class="title-section">
+         <h3>Estado de prestamo</h3>
+       </div>
+			 <canvas id="myChart2" class="chart"></canvas>
+		 </div>
+	 </div>
+ </div>
+
+
+
+
 	<input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
 		@include('prestamo.partials.modal-prestamo')
  @endsection
  @section('script')
  <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" ></script>
+ <script src="{{asset('js/Chart.js/dist/chart.js')}}"></script>
+
 <script>
+
+
+// graficos
+
+function chart(){
+
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var ctx2 = document.getElementById("myChart2").getContext('2d');
+  var myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              backgroundColor: [
+                  'rgba(255, 99, 132, 0.2)',
+                  'rgba(54, 162, 235, 0.2)',
+                  'rgba(255, 206, 86, 0.2)',
+                  'rgba(75, 192, 192, 0.2)',
+                  'rgba(153, 102, 255, 0.2)',
+                  'rgba(255, 159, 64, 0.2)'
+              ],
+              borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+              ],
+              borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              yAxes: [{
+                  ticks: {
+                      beginAtZero:true
+                  }
+              }]
+          }
+      }
+  });
+
+
+
+  var myChart2 = new Chart(ctx2, {
+			type: 'pie',
+			data: {
+					labels: ["Red", "Blue"],
+					datasets: [{
+							label: '# of Votes',
+							data: [12, 19],
+							backgroundColor: [
+									'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)'
+							],
+							borderColor: [
+									'rgba(255,99,132,1)',
+									'rgba(54, 162, 235, 1)'
+							],
+							borderWidth: 1
+					}]
+			},
+			options: {
+					rotate: -0.5 * Math.PI
+			}
+	});
+
+
+}
+
+
+
 	function abrir(){
 		$('#form-prestamo')[0].reset();
 	 	$('#crear').val('0');
@@ -83,9 +179,9 @@ Prestamos
 			$("#mestado_libro").val(result.estado_libro);
 			$("#mestado_devolucion").val(result.estado_devolucion);
 			$("#mid_prestamo").val(result.id);
-			
 
-			
+
+
 			$('#modal').modal('show');
 	        $('#crear').val('1');
 	        }
@@ -182,6 +278,7 @@ Prestamos
 
 	$(document).ready(function() {
 
+    chart();
 
   	/*Para el registro de nuevo producto o edicion*/
   	$('#example').DataTable( {

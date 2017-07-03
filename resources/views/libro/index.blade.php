@@ -2,13 +2,13 @@
 	@section('titulo')
 		Libros
 	@endsection()
+	<link rel="stylesheet" href="{{asset('css/style.css')}}">
 	@section('content')
-				
-	    <div class="sanciones_form panel panel-default ">
-	    <button onclick="abrir();" class="btn btn-primary">Nuevo</button>
-		<div class="container-fluid ">
-		
-				<table   id="example" class="table table table-hover table-result  width-all">
+
+	<div class="sanciones_form panel panel-default  padding-box ">
+	  <button onclick="abrir();" class="btn btn-accent">libro nuevo</button>
+		<div class="container-fluid table-container ">
+				<table   id="example" class="table table-hover">
 					<thead>
 						<tr>
 							<th>Nombre</th>
@@ -19,22 +19,161 @@
 							<th>Fecha publicacion</th>
 							<th>Fecha adquisicion</th>
 							<th>Acciones</th>
-
 						</tr>
 					</thead>
-
-					
-
 				</table>
-			<br/>	
+			<br/>
 		</div>
 	</div>
 	<input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
-	@include('libro.partials.modal-libro')
+
+ <div class="chart-libros">
+	 <div class="chart-libros-wrapper">
+		 <div class="bar chart-section panel panel-default padding-box">
+			 <div class="title-section">
+				 <h3>Prestamos por mes</h3>
+			 </div>
+			 <canvas id="myChart" class="chart"></canvas>
+		 </div>
+		 <div class="doughnut chart-section panel panel-default padding-box">
+			 <div class="title-section">
+				 <h3>Prestamos por area</h3>
+			 </div>
+			 <canvas id="myChart2" class="chart"></canvas>
+		 </div>
+	 </div>
+ </div>
+
+
+  <div class="sanciones_form panel panel-default padding-box">
+		<div class="title-section <padding-box></padding-box>">
+			<h3>Libros mas prestado</h3>
+		</div>
+    <div class="container-fluid  ">
+        <table   class="table table-hover  ">
+          <thead>
+            <tr>
+							<th>Nombre</th>
+							<th>Descripcion</th>
+							<th>Autor</th>
+							<th>Estado libros</th>
+            </tr>
+          </thead>
+					<tbody>
+						<tr>
+							<td>nombre #1</td>
+							<td>Descripcion #1</td>
+							<td>Autor #1</td>
+							<td>Estado libros #1</td>
+						</tr>
+						<tr>
+							<td>nombre #1</td>
+							<td>Descripcion #1</td>
+							<td>Autor #1</td>
+							<td>Estado libros #1</td>
+						</tr>
+						<tr>
+							<td>nombre #1</td>
+							<td>Descripcion #1</td>
+							<td>Autor #1</td>
+							<td>Estado libros #1</td>
+						</tr>
+						<tr>
+							<td>nombre #1</td>
+							<td>Descripcion #1</td>
+							<td>Autor #1</td>
+							<td>Estado libros #1</td>
+						</tr>
+					</tbody>
+        </table>
+      <br/>
+    </div>
+  </div>
+
+ @include('libro.partials.modal-libro')
  @endsection
  @section('script')
  <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" ></script>
+ <script src="{{asset('js/Chart.js/dist/chart.js')}}"></script>
 <script>
+
+	// graficos
+
+	function chart(){
+
+		var ctx = document.getElementById("myChart").getContext('2d');
+		var ctx2 = document.getElementById("myChart2").getContext('2d');
+		var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+						labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+						datasets: [{
+								label: '# of Votes',
+								data: [12, 19, 3, 5, 2, 3],
+								backgroundColor: [
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(255, 159, 64, 0.2)'
+								],
+								borderColor: [
+										'rgba(255,99,132,1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)'
+								],
+								borderWidth: 1
+						}]
+				},
+				options: {
+						scales: {
+								yAxes: [{
+										ticks: {
+												beginAtZero:true
+										}
+								}]
+						}
+				}
+		});
+
+
+		var myChart2 = new Chart(ctx2, {
+				type: 'doughnut',
+				data: {
+						labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+						datasets: [{
+								label: '# of Votes',
+								data: [12, 19, 3, 5, 2, 3],
+								backgroundColor: [
+										'rgba(255, 99, 132, 0.2)',
+										'rgba(54, 162, 235, 0.2)',
+										'rgba(255, 206, 86, 0.2)',
+										'rgba(75, 192, 192, 0.2)',
+										'rgba(153, 102, 255, 0.2)',
+										'rgba(255, 159, 64, 0.2)'
+								],
+								borderColor: [
+										'rgba(255,99,132,1)',
+										'rgba(54, 162, 235, 1)',
+										'rgba(255, 206, 86, 1)',
+										'rgba(75, 192, 192, 1)',
+										'rgba(153, 102, 255, 1)',
+										'rgba(255, 159, 64, 1)'
+								],
+								borderWidth: 1
+						}]
+				},
+				options: {
+						rotate: -0.5 * Math.PI
+				}
+		});
+	}
+
+
 	function abrir(){
 		$('#form-libro')[0].reset();
 	 	$('#crear').val('0');
@@ -77,12 +216,12 @@
 			$("#mfecha_publicacion").val(result.fecha_publicacion);
 			$("#mfecha_adquisicion").val(result.fecha_adquisicion);
 			$("#mejemplares").val(result.ejemplares);
-		
+
 			$("#mid_libro").val(result.id);
 			$("#mautor option[value="+result.autor+"]").prop('selected', 'selected').change();
 			$("#mestado_libro option[value="+result.estado_libro+"]").prop('selected', 'selected').change();
 
-		
+
 			$('#modal').modal('show');
 	        $('#crear').val('1');
 	        }
@@ -179,6 +318,7 @@
 
 	$(document).ready(function() {
 
+		chart();
 
   	/*Para el registro de nuevo producto o edicion*/
   	$('#example').DataTable( {
@@ -214,7 +354,7 @@
 	    	{data: 'fecha_publicacion'},
 	    	{data: 'fecha_adquisicion'},
 	    	{data: 'estado_libro'},
-	    
+
 
 	    	{data: 'action'},
 	    ]
@@ -248,7 +388,7 @@ tableResposive("#example", 980);
 
         });
 	});
-   	
+
 
 		 });
 

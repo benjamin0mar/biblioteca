@@ -2,12 +2,13 @@
 	@section('titulo')
 		Usuarios
 	@endsection()
+	<link rel="stylesheet" href="{{asset('css/style.css')}}">
+
 	@section('content')
-				
-	    <div class="sanciones_form panel panel-default ">
-	    <button onclick="abrir();" class="btn btn-primary">Nuevo</button>
+
+  <div class="sanciones_form panel panel-default padding-box ">
+    <button onclick="abrir();" class="btn btn-accent">nuevo usuario</button>
 		<div class="container-fluid ">
-		
 				<table   id="example" class="table table table-hover table-result  width-all">
 					<thead>
 						<tr>
@@ -19,22 +20,99 @@
 							<th>Tipo</th>
 							<th>Fecha inscripcion</th>
 							<th>Acciones</th>
-
 						</tr>
 					</thead>
-
-					
-
 				</table>
-			<br/>	
+			<br/>
 		</div>
 	</div>
+
+	<div class="chart-libros">
+ 	 <div class="chart-libros-wrapper">
+ 		 <div class="bar chart-section panel panel-default padding-box">
+			 <div class="title-section">
+				 <h3>Usuarios Nuevos</h3>
+			 </div>
+ 			 <canvas id="myChart" class="chart"></canvas>
+ 		 </div>
+ 		 <div class="doughnut chart-section panel panel-default padding-box">
+			 <div class="title-section">
+				 <h3>Estado de usuarios</h3>
+			 </div>
+ 			 <canvas id="myChart2" class="chart"></canvas>
+ 		 </div>
+ 	 </div>
+  </div>
+
+
 	<input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
 	@include('usuario.partials.modal-user')
  @endsection
  @section('script')
  <script src="//cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js" ></script>
+ <script src="{{asset('js/Chart.js/dist/chart.js')}}"></script>
 <script>
+
+
+// graficos
+
+function chart(){
+
+	var ctx = document.getElementById("myChart").getContext('2d');
+	var ctx2 = document.getElementById("myChart2").getContext('2d');
+	var myChart = new Chart(ctx, {
+			type: 'line',
+			data: {
+					labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+					datasets: [{
+							label: '# of Votes',
+							data: [12, 19, 3, 5, 2, 3],
+							backgroundColor: [
+									'rgba(255, 99, 132, 0.2)'
+							],
+							borderColor: [
+									'rgba(255,99,132,1)'
+							],
+							borderWidth: 1
+					}]
+			},
+			options: {
+					scales: {
+							yAxes: [{
+									ticks: {
+											beginAtZero:true
+									}
+							}]
+					}
+			}
+	});
+
+
+	var myChart2 = new Chart(ctx2, {
+			type: 'doughnut',
+			data: {
+					labels: ["Red", "Blue"],
+					datasets: [{
+							label: '# of Votes',
+							data: [12, 19],
+							backgroundColor: [
+									'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)'
+							],
+							borderColor: [
+									'rgba(255,99,132,1)',
+									'rgba(54, 162, 235, 1)'
+							],
+							borderWidth: 1
+					}]
+			},
+			options: {
+					rotate: -0.5 * Math.PI
+			}
+	});
+}
+
+
 	function abrir(){
 		$('#form-user')[0].reset();
 	 	$('#crear').val('0');
@@ -78,11 +156,11 @@
 			$("#mfecha_inscripcion").val(result.fecha_inscripcion);
 			$("#mdireccion").val(result.direccion);
 			$("#mtelefono").val(result.telefono);
-		
+
 			$("#mid_user").val(result.id);
 			$("#mtipo option[value="+result.tipo+"]").prop('selected', 'selected').change();
-			
-		
+
+
 			$('#modal').modal('show');
 	        $('#crear').val('1');
 	        }
@@ -179,6 +257,7 @@
 
 	$(document).ready(function() {
 
+		chart();
 
   	/*Para el registro de nuevo producto o edicion*/
   	$('#example').DataTable( {
@@ -210,12 +289,12 @@
 	    	{data: 'name'},
 	    	{data: 'email'},
 	    	{data: 'dni'},
-	    		
+
 	    	{data: 'direccion'},
 	    	{data: 'telefono'},
 	    {data: 'tipo'},
 	    {data: 'fecha_inscripcion'},
-	    
+
 
 	    	{data: 'action'},
 	    ]
@@ -249,7 +328,7 @@ tableResposive("#example", 980);
 
         });
 	});
-   	
+
 
 		 });
 
